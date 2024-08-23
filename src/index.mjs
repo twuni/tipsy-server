@@ -1,6 +1,7 @@
 import { createApp } from './App.mjs';
 import { createConfig } from './Config.mjs';
 import { createLogger } from './Logger.mjs';
+import { createObserver } from './Observer.mjs';
 import { createServer } from './Server.mjs';
 import process from 'node:process';
 
@@ -13,7 +14,9 @@ const logger = createLogger({
 });
 
 const app = createApp({
-  logger
+  observe: createObserver({
+    logger
+  })
 });
 
 const server = createServer({
@@ -23,6 +26,10 @@ const server = createServer({
   tcpPort: config.tcpPort,
   tlsCertificate: config.tlsCertificate,
   tlsKey: config.tlsKey
+});
+
+process.stdout.on('error', () => {
+  // This space intentionally left blank.
 });
 
 process.on('SIGINT', server.stop);
