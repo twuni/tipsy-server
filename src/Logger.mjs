@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto';
+
 const LOGGER_PRIORITY = new Map();
 
 /* eslint-disable no-magic-numbers */
@@ -18,6 +20,7 @@ export const createLogger = (options) => {
       return (type, payload) => {
         const context = {
           event: {},
+          id: randomUUID(),
           level,
           timestamp: options.timestamp()
         };

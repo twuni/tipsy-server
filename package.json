@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@twuni/measured": "^0.1.1",
     "@twuni/throwables": "^0.1.0",
     "dev": "^0.1.3",
     "eslint": "^9.9.0",

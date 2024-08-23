@@ -12,7 +12,9 @@ const logger = createLogger({
   timestamp: () => new Date().toISOString()
 });
 
-const app = createApp();
+const app = createApp({
+  logger
+});
 
 const server = createServer({
   app,
