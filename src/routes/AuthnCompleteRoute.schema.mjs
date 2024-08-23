@@ -3,6 +3,7 @@ export const schema = Object.freeze({
     code: {
       maxLength: 6,
       minLength: 6,
+      pattern: '^[0-9]+$',
       type: 'string'
     },
     via: {

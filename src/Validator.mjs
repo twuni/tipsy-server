@@ -12,9 +12,9 @@ export const createValidator = (schema) => {
       response.writeHead(400, 'Client Error', { 'Content-Type': 'application/json' });
 
       if (error.name === 'MultipleErrors') {
-        response.write(`${error.message}\n`);
+        response.write(`{"errors":${error.message}}\n`);
       } else {
-        response.write(`${JSON.stringify({ message: error.message, type: error.name })}\n`);
+        response.write(`${JSON.stringify({ errors: [error] })}\n`);
       }
 
       response.end();
