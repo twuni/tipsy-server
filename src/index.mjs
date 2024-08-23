@@ -2,6 +2,7 @@ import { createApp } from './App.mjs';
 import { createConfig } from './Config.mjs';
 import { createLogger } from './Logger.mjs';
 import { createObserver } from './Observer.mjs';
+import { createRoutes } from './routes.mjs';
 import { createServer } from './Server.mjs';
 import process from 'node:process';
 
@@ -16,7 +17,8 @@ const logger = createLogger({
 const app = createApp({
   observe: createObserver({
     logger
-  })
+  }),
+  routes: createRoutes()
 });
 
 const server = createServer({
